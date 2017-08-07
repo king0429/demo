@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src='jquery.min.js'></script>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul,ol{
+			list-style: none;
+		}
+		.wrap {
+			transform: rotateX(-10deg);
+			perspective: 2000px;
+			transform-style: preserve-3d;
+			position: absolute;
+			left: 50%;
+			margin-left: -150px;
+		}
+		.wrap li {
+			display: inline-block;
+			margin-top: 100px;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+
+		<ul class="wrap">
+			<li><img src="1.jpg" alt=""></li>
+			<li><img src="2.jpg" alt=""></li>
+			<li><img src="3.jpg" alt=""></li>
+			<li><img src="4.jpg" alt=""></li>
+			<li><img src="5.jpg" alt=""></li>
+		</ul>
+		<script type="text/javascript">
+			for (var i = 0; i < $('.wrap li').length; i++) {
+
+				$('.wrap li').eq(i).css('transform', 'rotateY('+72*i+'deg) translateZ(300px)');
+				console.log($('.wrap li').length)
+			}
+			var j = 0;
+			setInterval(function(){
+				for (var i = 0; i < $('.wrap li').length; i++) {
+
+					$('.wrap li').eq(i).css('transform', 'rotateY('+((72*i)+j)+'deg) translateZ(300px)');
+					console.log((72*i)+j)
+				}
+				j++;
+			}, 30);
+		</script>
+</body>
+</html>
+<!-- $('.wrap li').css('transform', 'rotateY'+72*Number($(this).index())+'deg translateZ(300px)'); -->

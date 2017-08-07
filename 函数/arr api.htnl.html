@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<input type="text" id="cont">
+		<button onclick="setDiv()">请输入插入div的个数</button>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// dom对象练习 数组api
+			var arr1 = [1,2,3,4,5];
+			var arr2 = [2,3,4];
+			document.write(arr1.concat(arr2));
+			document.write('<hr />');
+			document.write(typeof arr1.join('/'));
+			document.write(arr1.join(',')+'&nbsp;');
+			document.write(arr1.join(',').length);
+			document.write('<hr />');
+			document.write(arr1.pop()+'&nbsp;'+arr1);
+			document.write('<hr />');
+			document.write(arr1.push('你好')+arr1);
+			document.write('<hr />');
+			document.write(arr1.reverse());
+			document.write('<hr />');
+			function setDiv() {
+				var cont = document.getElementById('cont');
+				console.log(cont.value);
+				for (var i = 0; i < cont.value; i++){
+					var adiv = document.createElement('div');
+					adiv.innerHTML='1';
+					adiv.style.height = '100px';
+					adiv.style.width = '100px';
+					adiv.style.border = '1px solid red';
+					adiv.style.float = 'left'
+					console.log(document.getElementsByTagName('body')[0])
+					document.getElementsByTagName('body')[0].appendChild(adiv)
+				}
+			}
+			document.write(arr1 +'<hr />'+ arr1.indexOf(3));
+			document.write('<hr />'+arr1.shift())
+		</script>
+	</body>
+</html>

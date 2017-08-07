@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		canvas{border: 1px solid green;display: block;margin: 10px auto;}
+	</style>
+</head>
+<body>
+	<canvas id="canvas" width="800" height="500"></canvas>
+	<script type="text/javascript">
+	var canvas = document.getElementById('canvas');
+	var ctx = canvas.getContext('2d');
+		//?????
+		//div.width = document.body.clientWidth;
+		// canvas.width = document.body.clientWidth;
+		// canvas.height = document.body.clientHeight;
+		// canvas.onclick = function () {
+		// 	alert(document.body.clientWidth+'----'+document.body.clientHeight)
+		// }	
+	canvas.onclick = function (e) {
+		falldown(e.offsetX,e.offsetY);
+
+	}
+
+	function falldown(x,y){
+		var rainR = 100;
+		var alpha = 0.9;
+		setInterval(function(){			
+			ctx.clearRect(0,0,canvas.width,canvas.height);
+			ctx.save();
+			ctx.beginPath();		
+			ctx.lineWidth = 4;	
+			ctx.strokeStyle = 'red';
+			ctx.globalAlpha=1;
+			ctx.translate(x,y);
+			ctx.arc(0,0,rainR,0,Math.PI*2);
+			ctx.stroke();
+			ctx.restore();
+			rainR+=1;
+			alpha*=0.9;
+		}, 10);
+
+	}
+	</script>
+</body>
+</html>

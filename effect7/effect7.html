@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src='jquery.min.js'></script>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		ul{list-style: none;}
+		#board{width: 400px;height:600px;border: 1px solid green;margin:40px auto}
+		#content{width: 400px;height: 540px;background: #EEE}
+		#content img{margin:75px 70px;width: 260px}
+		#menu li{width: 100px;height: 60px;float: left;font-size: 16px;text-align: center;line-height: 80px}
+	</style>
+</head>
+<body>
+	<div id="board">
+		<div id="content">
+			<img>
+		</div>
+		<ul id="menu">
+			<li>附近</li>
+			<li>通讯录</li>
+			<li>发现</li>
+			<li>我</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		$('li').on('click', function() {
+			$('#content img').css('height', '0px');
+			var a = $(this).index();
+			$('#content img').attr('src', a+1+'.jpg').animate({height:"390px"},500)
+			// $(this).children('img');
+			// $('#content imgeq(3)').slideDown('slow')
+		})
+	</script>
+</body>
+</html>

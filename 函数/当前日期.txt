@@ -1,0 +1,42 @@
+	function timer() {
+		var myDate = new Date();
+		myDate.getFullYear();
+		var y = myDate.getFullYear();
+		var m = myDate.getMonth()+1;
+		var d = myDate.getDate();
+		var x = myDate.getDay();
+		var h = myDate.getHours();
+		var i = myDate.getMinutes();
+		var s = myDate.getSeconds();
+
+
+		//数组
+		switch(x){
+			case 0: x='日';break;
+			case 1: x='一';break;
+			case 2: x='二';break;
+			case 3: x='三';break;
+			case 4: x='四';break;
+			case 5: x='五';break;
+			case 6: x='六';break;
+
+		}
+
+		var a1 = document.getElementById('a1')
+
+		a1.innerHTML=(y+'-'+getTwo(m)+'-'+getTwo(d)+' 星期'+x+' '+getTwo(h)+':'+getTwo(i)+':'+getTwo(s));
+
+	}
+
+//输出
+timer()
+setInterval(timer,1000)
+
+		function getTwo(num) {
+			if (num<10) {
+				return '0'+num;
+			} else {
+				return num;
+			}
+		}
+		

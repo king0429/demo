@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+			.wrap {height: 20px;width:100px;background: rgb(12,200,37);color:rgb(255,255,255);text-align: center;line-height: 20px;cursor: pointer;border:1px solid rgb(55,117,16);
+			}
+      .box {height: 20px;width: 20px;background: rgba(12,200,37,0.5);border-radius: 50%;position: relative;left: 200px;top: 200px}
+       .wrap:hover {background:rgb(99,255,99) }
+    </style>
+    <script src='jquery.min.js'></script>
+</head>	
+<body>
+		<div class="wrap">螺旋爆炸</div>
+    <div class="box"></div>
+    <script type="text/javascript">
+    $('.wrap').click(function() {
+    		var xStr = $('.box').css('left');
+    		var yStr = $('.box').css('top');
+    		var x = Number(xStr.substring(0,3));
+    		var y = Number(yStr.substring(0,3));
+    		var r = 100;
+    		//圆心：(300,200)
+    		setInterval(function(){
+    			var isHalf = true;
+    			console.log(x+'////////'+y);
+    			if (x<=398&&y>=200) {
+    			$('.box').css({
+    				left: x++,
+    				top: Math.sqrt(Math.pow(r,2)-Math.pow((x-300),2))+200
+    				});
+    			} ;
+    			console.log(x+'////////'+y);
+    			if(x<=400&&y<200){
+    			  $('.box').css({
+    				left: x--,
+    				top: 200-Math.sqrt(Math.pow(r,2)-Math.pow((x-300),2))
+
+    			});
+    			  console.log(200-Math.sqrt(Math.pow(r,2)-Math.pow((399-300),2)));
+    			  
+    		}
+    	},30);
+
+    });
+    </script>
+</body>
+
+</html>

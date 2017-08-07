@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src= 'jquery.min.js'></script>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		.boxSmall{width: 50px;height: 50px;position: absolute;top: 50px;left: 50px;background: rgba(158,66,84,0.4);border: 1px solid rgb(158,66,84);padding:5px 10px;color: white;font-size: 16px }
+		.send{width: 20px;height: 20px;background:rgb(158,66,84);color: white;font-size: 20px;line-height: 20px;position: absolute;left:605px;top:495px;text-align-last: center;display: none; }
+		.inp{width: 600px;height:80px;font-size: 20px;resize: none;position: absolute;right: 100px;bottom:0;display:naone; }
+		.btn{height: 82px;background: rgba(158,66,84,0.4);border: none;width: 100px;position: absolute;right:0px;bottom: 0 ;font-size: 40px;color: white;display: naone;}
+	</style>
+</head>
+<body>
+	<div id="smallbox" class="boxSmall"></div>
+	<div class="send">↑</div>
+	<textarea class="inp"></textarea>
+	<button class="btn">提交</button>
+	<script type="text/javascript">
+		$('#smallbox').click(function(){
+				$(this).animate({left:'200px',top:'100px',height:'400px', width:'400px',borderWidth:'4px'},1000,function () {
+					$('.inp,.btn').fadeIn(200);
+				})
+		});
+		$('.btn').click(function() {
+			$('.send').fadeIn(500);
+			$('#smallbox').html($('.inp').val())
+			$('.inp').val('');
+
+		});
+		
+		$('.send').click(function(){
+			alert('a')
+			$.ajax({
+				type:'post',
+				url:'test.php',
+				data:{
+					text:$('#smallbox').html()
+				},
+				success:function (res,status) {
+					console.log(res+status);
+				}
+			})
+		});
+	</script>
+</body>
+</html>

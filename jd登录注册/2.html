@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		ul{list-style: none;}
+		body{font-family: "微软雅黑"}
+		a{text-decoration: none;}
+
+		header{width: 100%;height: 31px;background: #E3E4E5;position: relative;}
+		.logo{position:absolute;left:50px;height: 0px;border: 1px solid #fff;box-shadow: 1px 1px 2px #CCC;border-top: none;}
+		.logo img{background: white;}
+		.header{height: 100%;width: 70%;margin-left: 330px;}
+		.add{height: 100%;width: 80px;position: relative; color: #A2ABC8;line-height: 31px;text-align:center;font-size: 14px;}		
+		.gai{height: 1px;width: 80px;border-bottom: 1px solid white;position: absolute;z-index: 999;bottom: -1px;display: none;background: white;}
+		.add ul{width: 380px;height: 180px;border: 1px solid #999999; display: none;background: white;}
+		.add ul li{font-size: 14px; float: left;width: 70px;margin:7px 2px;text-align: center;}
+		.add ul li a{display: block; width: 70%;color: #999999;margin: 0 auto;line-height: 20px}
+		ul.addd li:nth-child(1) a{background: red;color: #fff;}
+		.ginn{height: 100%;margin-left: 120px;}
+		.ginn li,div{display: inline-block;height: 100%;vertical-align:top;line-height: 31px;font-size: 14px;}
+		.ginn div{margin: 0 6px;font-size:6px;color: #999;}
+		.ginn li a{width: 100%;height: 100%;display: block;color: #999;}
+		.ginn li:nth-child(2) a{color: red;}
+
+		.nav{width: 100%;height: 138px; }
+		.left{width: 70%;height: 100%;float: left;}
+		.sea{width:100%;height: 36px;margin:30px 0;}
+		.sea input{width: 485px;margin-left: 10px;height: 34px;border: 1px solid red;float: right;}
+		.sea button{width: 71px;height: 36px;float: right;border: none;background: red;margin-right:30px ;}
+		.hot{width: 558px; float: right;margin-right:30px ;}
+		.hot a{font-size: 10px;color: #999;line-height: 36px;margin-right: 7px;}
+		.hot a:nth-child(1){color: red}
+		.sav{ float: right;height: 36px;margin-top: 6px;}
+		.sav a{font-size: 16px; margin: 2px 11px;color: #999;font-weight: bold;}
+		.sav div{font-size: 12px;color: #999}
+
+		.right{width: 30%;height: 100%; float: right;}
+		.acc{width: 200px;height: 36px;border: 1px solid #999;text-align:center;color:red;margin-top:30px ; margin-left:10px;}
+		.cot{width: 20px;height: 20px; background: red;border-radius: 50%;color: white;font-weight: bold;line-height: 20px;margin-top: 3px;margin-left: 3px;}
+		#ad{margin-left: 37px;margin-top: 0px;}
+		#ad1{ margin-top: 10px;margin-left: 80px;}
+
+		.add:hover{color: red;background: white;}
+		.add:hover .gai{display: block;}
+		.add:hover .addd{display: block;left: 0px;top:0px;}
+		ul.addd li a:hover{color:white;background: red;}
+
+
+		.menu{width: 100%;height:500px;}
+		.mleft{width: 190px;height: 100%;margin-left: 49px;background: #6E6568;}
+		.mleft div{color: white}
+		.mleft li a{line-height: 32px;color: white;font-size: 14px;}
+		.mleft li a:hover{color: white}
+		.mleft ul li a:nth-child(1){padding-left: 15px;}
+		.mleft li:nth-child(1){padding-top: 20px;}
+		.mmid{ width: 790px;height: 100%;margin: 0 18px;}
+		.mmid_top{height: 340px;width: 790px}
+		.mmid_button{height: 170px;width: 100%}
+		.mmid_button img{margin-top: 30px;}
+		.mmid_button img:nth-child(1){margin-right: 10px;}
+
+		.mright{display: inline-block;width: 190px;height: 100%;color: #666666}
+		.mr1{width: 100%;height: 30%;}
+		.mr1t{width: 100%;height: 70%; }
+		.mr1t p{display: block;float: right; width: 130px;margin-top: 30px;padding: 0}
+		.mr1t img{margin-top: 30px;margin-left: 10px;}
+		#login{margin-left: 80px;margin-right: 10px;color:#666666;margin-top: 50px;}
+
+		#log{color:#666666}
+		.mr1b{height: 30%; display: block;}
+		.mr1b div:nth-child(1) a{display: block; margin-left: 20px;border: 1px solid red;line-height: 24px;padding:3px;margin-top: 12px;color: red}
+		.mr1b div:nth-child(1) a:hover{background:red;color: white}
+		.mr1b div:nth-child(2) a:hover{background:red;color: white}
+
+		.mr1b div:nth-child(2) a{display: block; margin-left: 15px;border: 1px solid red;line-height: 24px;padding: 3px;margin-top: 12px;color: red}
+		.mr2{width: 100%;height: 30%;}
+		.mr2t{width: 100%;height: 30px;}
+		.mr2t div:nth-child(1){float: left; font-size: 14px;border-right:1px solid #666666;padding-left: 5px;padding-right: 5px}
+		.mr2t div:nth-child(2){float: left; font-size: 14px;border-right:1px solid #666666;padding-left: 5px;padding-right: 5px}
+		.mr2t div:nth-child(3){float:right ; font-size: 14px;border-left:1px solid #666666;padding-left: 5px;padding-right: 5px}
+		.news{font-size: 14px;line-height: 28px;padding-top: 10px;}
+		.news a{color: #666666;}
+
+		.mr3{height: 40%;width: 100%;}
+		.mr3 table{height: 100%;width: 100%;}
+		.mr3 tr{height: 25%,}
+		.mr3 td{text-align:center;vertical-align: bottom;}
+		
+		.item{display: block; width: 1210px;height: 513px;margin-left: 50px;margin-top: 20px;}
+		.ifelt{height: 100%;width: 49.8%;float: left;}
+		.iright{height: 100%;width: 49.5%;float: right;}
+		.if0{height: 50px;width: 100%;background: #35A7A5;}
+		.if1{width:100%;height: 270px;}
+		
+		.if3{width: 100%;height: 48px;}
+		.if0 div:nth-child(1){font-size: 18px; color: white;line-height: 50px;padding-left: 15px;float: left;}
+		.if0 div:nth-child(2){float:right}
+		.if0 ul li{font-size: 12px;line-height: 12px; float: right;padding: 8px 6px;border: 1px solid #64C7C6;margin-right: 8px;margin-top: 10px;color: white;background: #57B2B1;}
+		.if1>div:nth-child(1) img{margin-top: 10px;margin-left: 10px;float: left;}
+		.four{height: 100%;width: 380px;float: right;}
+		.four div{height: 49%;width: 49.8%;position: relative;border-color:}
+		.four div:nth-child(1){float: left;border-right: 1px solid  #EDEDED;}
+		.four div:nth-child(2){float:right;border-bottom: 1px solid #EDEDED}
+		.four div:nth-child(3){float: left;border-top: 1px solid #EDEDED}
+		.four div:nth-child(4){float:right;border-left: 1px solid #EDEDED}
+		.solo{font-size: 14px; line-height: 25px;margin-top: 16px;color: #767676}
+		.solo>p{color:#64C7C6;font-size: 20px;line-height: 30px; }
+		.four img{position: absolute;right: 0px;top: 16px}
+
+		.four img:hover{transform:translate(-5px,0);}
+		.solo2{margin-left: 5px;}
+		.if2{width: 100%;height: 140px;margin-top: 10px;}
+		.if2>img:nth-child(2){margin:0 2px;}
+		.if3 div { margin: 7px 4px;color: #767676 }
+		.if3>div:nth-child(1) img{padding-left: 10px;}
+		
+		.ir0{background: #508978;}
+		.ir0 ul li{background: #6F9D8F;border: 1px solid #78A99D} 
+		
+		footer{width: 100%;height: 550px;margin-top: 10px;background: #EAEAEA;}
+		.ftop{width: 100%;height: 30%;border-bottom: 2px dotted #E3e3e3;}
+		.ftop div{width: 23%;height: 100%; font-size: 30px;text-align: center;line-height: 150px;font-weight: bold;color: #444444;padding: 0 11px;}
+		.fmiddle{width: 100%;height: 45%;color: #444444}
+		.fmiddle>div{height: 80%;padding: 0px 63px;margin-top: 10px;color: #444444;text-align: center;}
+		.more{height: 130px;margin-top: 50px;}
+		.more a{margin-left: 102px;color: #444444}
+
+		.fbye{height: 31px;}
+		.fbye>div ul li{display: inline-block;} 
+		.fbye>div ul div{padding: 0 3px;color: #9a9a9a}
+		.fbye>div ul li{color: #9a9a9a;font-size: 12px;}
+		.fbye>div:nth-child(1) ul div{padding: 0 3px;color: #444444}
+		.fbye>div:nth-child(1) ul li{color: #444444}
+		.l1{margin-left: 170px;}
+		.l2{margin-left: 290px;}
+		.l3{margin-left: 250px;}
+		.l4{margin-left: 470px;}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="logo">
+			<img src="images/logo.png" alt="">
+		</div>
+		<div class="header">
+			<div class="add">北京
+				<div class="gai"></div>
+				<ul class="addd">
+					<li><a href="">北京</a></li>
+					<li><a href="">上海</a></li>
+					<li><a href="">广州</a></li>
+					<li><a href="">深圳</a></li>
+					<li><a href="">天津</a></li>
+					<li><a href="">重庆</a></li>
+					<li><a href="">河北</a></li>
+					<li><a href="">河南</a></li>
+					<li><a href="">广东</a></li>
+					<li><a href="">广西</a></li>
+					<li><a href="">湖南</a></li>
+					<li><a href="">湖北</a></li>
+					<li><a href="">山东</a></li>
+					<li><a href="">山西</a></li>
+					<li><a href="">浙江</a></li>
+					<li><a href="">江苏</a></li>
+					<li><a href="">吉林</a></li>
+					<li><a href="">黑龙江</a></li>
+					<li><a href="">辽宁</a></li>
+					<li><a href="">内蒙古</a></li>
+					<li><a href="">宁夏</a></li>
+				</ul>
+			</div>
+			<div class="login">
+				<ul class="ginn">
+					<li><a href="">您好，请登录</a></li>
+					<li><a href="">免费注册</a></li>
+					<div>|</div>
+					<li><a href="">我的订单∨</a></li>
+					<div>|</div>
+					<li><a href="">我的京东∨</a></li>
+					<div>|</div>
+					<li><a href="">京东会员</a></li>
+					<div>|</div>
+					<li><a href="">企业采购</a></li>
+					<div>|</div>
+					<li><a href="">客户服务∨</a></li>
+					<div>|</div>
+					<li><a href="">网站导航</a></li>
+					<div>|</div>
+					<li><a href="">手机京东</a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<div class="nav">
+		<div class="left">
+			<div class="sea">
+				<button>dsa</button><input type="text">
+				<div class="hot"><a href="">谷雨美食</a> <a href="">玩物盛典</a> <a href="">满199减100</a> <a href="">京东内衣节</a> <a href="">家电秒杀</a> <a href="">手套女冬</a> <a href="">儿童玩具</a> <a href="">粮油节</a> <a href="">洗碗机</a></div>
+			</div>
+			<div style="clear:right"></div>
+			<div class="sav">
+				<a href="">秒杀</a>
+				<a href="">优惠卷</a>
+				<a href="">闪购</a>
+				<a href="">拍卖</a>
+				<div>|</div>
+				<a href="">服装城</a>
+				<a href="">京东超市</a>
+				<a href="">生鲜</a>
+				<a href="">全球购</a>
+				<div>|</div>
+				<a href="">京东金融</a>
+			</div>
+		</div>
+		<div class="right">
+			<div class="acc">我的购物车<div class="cot">1</div></div>
+			<img id="ad" src="images/2.png" alt=""><br>
+			<img id="ad1" src="images/1.png" alt="">
+		</div>
+	</div>
+	<div class="menu">
+		<div class="mleft">
+			<ul>
+				<li><a href="">家用电器</a></li>
+				<li>
+					<a href="">手机</a>
+					<div>/</div>
+					<a href="">运营商</a>
+					<div>/</div>
+					<a href="">数码</a>
+				</li>
+				<li>
+					<a href="">电脑</a>
+					<div>/</div>
+					<a href="">办公</a>
+				</li>
+				<li>
+					<a href="">家居</a>
+					<div>/</div>
+					<a href="">家具</a>
+					<div>/</div>
+					<a href="">家装</a>
+					<div>/</div>
+					<a href="">厨具</a>
+				</li>
+				<li>
+					<a href="">男装</a>
+					<div>/</div>
+					<a href="">女装</a>
+					<div>/</div>
+					<a href="">童装</a>
+					<div>/</div>
+					<a href="">内衣</a>
+				</li>
+				<li>
+					<a href="">美妆个护</a>
+					<div>/</div>
+					<a href="">宠物</a>
+				</li>
+				<li>
+					<a href="">女鞋</a>
+					<div>/</div>
+					<a href="">箱包</a>
+					<div>/</div>
+					<a href="">钟表</a>
+					<div>/</div>
+					<a href="">珠宝</a>
+				</li>
+				<li>
+					<a href="">男鞋</a>
+					<div>/</div>
+					<a href="">运动</a>
+					<div>/</div>
+					<a href="">户外</a>
+				</li>
+				<li>
+					<a href="">汽车</a>
+					<div>/</div>
+					<a href="">汽车用品</a>
+				</li>
+				<li>
+					<a href="">母婴</a>
+					<div>/</div>
+					<a href="">玩具乐器</a>
+				</li>
+				<li>
+					<a href="">食品</a>
+					<div>/</div>
+					<a href="">酒类</a>
+					<div>/</div>
+					<a href="">生鲜</a>
+					<div>/</div>
+					<a href="">特产</a>
+				</li>
+				<li>
+					<a href="">医药保健</a>
+					<div>/</div>
+					<a href="">计生情趣</a>
+				</li>
+				<li>
+					<a href="">图书</a>
+					<div>/</div>
+					<a href="">音像</a>
+					<div>/</div>
+					<a href="">电子书</a>
+				</li>
+				<li>
+					<a href="">机票</a>
+					<div>/</div>
+					<a href="">酒店</a>
+					<div>/</div>
+					<a href="">旅游</a>
+					<div>/</div>
+					<a href="">生活</a>
+				</li>
+				<li>
+					<a href="">理财</a>
+					<div>/</div>
+					<a href="">众筹</a>
+					<div>/</div>
+					<a href="">白条</a>
+					<div>/</div>
+					<a href="">保险</a>
+				</li>
+			</ul>
+		</div>
+		<div class="mmid">
+			<div class="mmid_top">
+				<img src="images/01.jpg" alt=""> 
+			</div>
+			<div class="mmid_button">
+				<img src="images/03.jpg" alt=""><img src="images/04.jpg" alt="">
+			</div>
+		</div>
+		<div class="mright">
+			<div class="mright">
+				<div class="mr1">
+					<div class="mr1t">
+						<img src="images/login.png" alt="">
+						<p>Hi,欢迎来到京东</p>
+						<div class="hello">
+							<a id="login" href="">登陆</a>
+							<a id="log" href="">注册</a>
+						</div>
+					</div>
+					<div class="mr1b">
+						<div><a href="">新人福利</a></div><div><a href="">PLUS会员</a></div>
+					</div>
+				</div>
+				<div class="mr2">
+					<div class="mr2t">
+						<div>促销</div>
+						<div>公告</div>
+						<div>更多</div>
+						<div style="clear:both"></div>
+					</div>
+					<div class="news">
+						<a href="">惠普超轻薄本，低至7999</a><br>
+						<a href="">家装节买家居，买4免1提前逛</a><br>
+						<a href="">京东悦读节!叠劵满300减200</a><br>		
+						<a href="">懒人快手菜，爆品低至5折</a>
+					</div>
+				</div>
+				<div class="mr3">
+					<table cellpadding="0" cellspacing="0">
+						<tr>
+							<td>话费</td>
+							<td>机票</td>
+							<td>酒店</td>
+							<td>游戏</td>
+						</tr>
+						<tr>
+							<td>企业购</td>
+							<td>加油卡</td>
+							<td>电影票</td>
+							<td>火车票</td>
+						</tr>
+						<tr>
+							<td>众筹</td>
+							<td>理财</td>
+							<td>礼品卡</td>
+							<td>彩票</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="item">
+		<div class="ifelt">
+			<div class="if0">
+				<div>玩3C</div>
+				<div>
+					<ul>
+						<li>二手优品</li>
+						<li>问卷调研</li>
+						<li>数码</li>
+						<li>电脑办公</li>
+						<li>手机</li>
+					</ul>
+				</div>
+			</div>
+			<div class="if1">
+				<div><img src="images/05.jpg" alt=""></div>
+				<div class="four">
+					<div>
+						<div class="solo">
+							<p>手机专场</p>
+							新品值得<br>
+							买华为<br>
+							P10抢购
+						</div>
+						<img src="images/06.jpg" alt="">
+					</div>
+					<div>
+						<div class="solo solo2">
+							<p>以旧换新</p>
+							旧品折价<br>
+							1000元E<br>
+							卡限量抢
+						</div>
+						<img src="images/07.jpg" alt="">
+					</div>
+					<div>
+						<div class="solo">
+							<p>电脑办公</p>
+							文具最高<br>
+							每满199<br>
+							减80
+						</div>
+						<img src="images/08.jpg" alt="">
+					</div>
+					<div>
+						<div class="solo solo2">
+							<p>二手优品</p>
+							iphone6<br>
+							低至<br>
+							2333
+						</div>
+						<img src="images/09.jpg" alt="">
+					</div>
+				</div>
+			</div>
+			<div class="if2">
+				<img src="images/10.jpg" alt="">
+				<img src="images/11.jpg" alt="">
+				<img src="images/12.jpg" alt="">
+			</div>
+			<div class="if3">
+				<div><img src="images/13.jpg" alt=""></div>
+				<div>|</div>
+				<div><img src="images/14.jpg" alt=""></div>
+				<div>|</div>
+				<div><img src="images/15.jpg" alt=""></div>
+				<div>|</div>
+				<div><img src="images/16.jpg" alt=""></div>
+				<div>|</div>
+				<div><img src="images/17.jpg" alt=""></div>
+				<div>|</div>
+				<div><img src="images/18.jpg" alt=""></div>
+			</div>
+		</div>
+		<div class="iright">
+			<div class="if0 ir0">
+				<div>爱运动</div>
+				<div>
+					<ul>
+						<li>户外风衣</li>
+						<li>电动车</li>
+						<li>动感单车</li>
+						<li>冲锋衣</li>
+						<li>跑步鞋</li>
+					</ul>
+				</div>
+			</div>
+			<div class="if1">
+				<div><img src="images/19.jpg" alt=""></div>
+				<div class="four">
+					<div>
+						<div class="solo">
+							<p>手机专场</p>
+							新品值得<br>
+							买华为<br>
+							P10抢购
+						</div>
+						<img src="images/06.jpg" alt="">
+					</div>
+					<div>
+						<div class="solo solo2">
+							<p>以旧换新</p>
+							旧品折价<br>
+							1000元E<br>
+							卡限量抢
+						</div>
+						<img src="images/20.jpg" alt="">
+					</div>
+					<div>
+						<div class="solo">
+							<p>电脑办公</p>
+							文具最高<br>
+							每满199<br>
+							减80
+						</div>
+						<img src="images/21.jpg" alt="">
+					</div>
+					<div>
+						<div class="solo solo2">
+							<p>二手优品</p>
+							iphone6<br>
+							低至<br>
+							2333
+						</div>
+						<img src="images/22.jpg" alt="">
+					</div>
+				</div>
+			</div>
+			<div class="if2">
+				<img src="images/24.jpg" alt="">
+				<img src="images/25.jpg" alt="">
+				<img src="images/26.jpg" alt="">
+			</div>
+			<div class="if3">
+				<div><img src="images/27.jpg" alt=""></div>
+				<div>|</div>
+				<div><img src="images/28.jpg" alt=""></div>
+				<div>|</div>
+				<div><img src="images/29.jpg" alt=""></div>
+				<div>|</div>
+				<div><img src="images/30.jpg" alt=""></div>
+				<div>|</div>
+				<div><img src="images/31.jpg" alt=""></div>
+				<div>|</div>
+				<div><img src="images/32.jpg" alt=""></div>
+			</div>
+		</div>		
+	</div>
+	<footer>
+		<div class="ftop">
+			<div>品类齐全，轻松购物</div>
+			<div>多仓直发，极速配送</div>
+			<div>正品行货，精致服务</div>
+			<div>天天低价，畅选无忧</div>
+		</div>
+		<div class="fmiddle">
+			<div>
+				<h3>购物指南</h3>
+				<ul>
+					<li>购物流程</li>
+					<li>会员介绍</li>
+					<li>生活旅行</li>
+					<li>常见问题</li>
+					<li>大家电</li>
+					<li>联系客服</li>
+				</ul>
+			</div><div>			
+				<h3>配送方式</h3>
+				<ul>
+					<li>上门自提</li>
+					<li>211限时达</li>
+					<li>配送服务查询</li>
+					<li>配送费收取标准</li>
+					<li>海外配送</li>
+				</ul>
+			</div><div>	
+				<h3>支付方式</h3>
+				<ul>
+					<li>货到付款</li>
+					<li>在线付款</li>
+					<li>分期付款</li>
+					<li>邮局汇款</li>
+					<li>公司转账</li>
+				</ul>
+			</div><div>
+				<h3>售后服务</h3>
+				<ul>
+					<li>售后政策</li>
+					<li>价格保护</li>
+					<li>退款说明</li>
+					<li>返修/退换货</li>
+					<li>取消订单</li>
+				</ul>
+			</div><div>
+				<h3>特色服务</h3>
+				<ul>
+					<li>夺宝岛</li>
+					<li>DIY装机</li>
+					<li>延保服务</li>
+					<li>京东E卡</li>
+					<li>京东通信</li>
+					<li>激动JD+</li>
+				</ul>
+			</div><div>
+				<h3>京东自营覆盖县区</h3>
+				<div class="more">京东已向全国2661个县提供自<br>
+					营配送服务；支持货到付款、<br>
+					POS机刷卡和售后上门服务。<br><a class="" href="">查看详情》</a>
+				</div>	
+			</div>
+		</div>
+		<div class="fbye">
+			<div>
+				<ul>
+					<a href="" class="l1"><li>关于我们</li></a>
+					<div>|</div>
+					<a href=""><li>联系我们</li></a>
+					<div>|</div>
+					<a href=""><li>联系客服</li></a>
+					<div>|</div>
+					<a href=""><li>合作招商</li></a>
+					<div>|</div>
+					<a href=""><li>商家帮助</li></a>
+					<div>|</div>
+					<a href=""><li>营销中心</li></a>
+					<div>|</div>
+					<a href=""><li>手机京东</li></a>
+					<div>|</div>
+					<a href=""><li>友情链接</li></a>
+					<div>|</div>
+					<a href=""><li>销售联盟</li></a>
+					<div>|</div>
+					<a href=""><li>京东社区</li></a>
+					<div>|</div>
+					<a href=""><li>风险检测</li></a>
+					<div>|</div>
+					<a href=""><li>隐私策略</li></a>
+					<div>|</div>
+					<a href=""><li>京东公益</li></a>
+					<div>|</div>
+					<a href=""><li>English Site</li></a>
+					<div>|</div>
+					<a href=""><li>Contact Us</li></a>
+				</ul>
+			</div>
+			<div>
+				<ul>
+					<a href="" class="l2"><li>京公网安备 11000002000088号</li></a>
+					<div>|</div>
+					<a href=""><li>京ICP证070359号</li></a>
+					<div>|</div>
+					<a href=""><li>互联网药品信息服务资格证编号(京)-经营性-2014-0008</li></a>
+					<div>|</div>
+					<a href=""><li>新出发京零 字第大120007号</li></a>
+				</ul>
+			</div>
+			<div>
+				<ul>
+					<a href="" class="l3"><li>互联网出版许可证编号新出网证(京)字150号</li></a>
+					<div>|</div>
+					<a href=""><li>出版物经营许可证</li></a>
+					<div>|</div>
+					<a href=""><li>网络文化经营许可证京网文[2014]2148-348号</li></a>
+					<div>|</div>
+					<a href=""><li>违法和不良信息举报电话：4006561155</li></a>
+				</ul>
+			</div>
+			<div>
+				<ul>
+					<a href="" class="l4"><li>Copyright © 2004 - 2017  京东JD.com 版权所有</li></a>
+					<div>|</div>
+					<li>消费者维权热线：4006067733</li>
+					<a href=""><li>京东云</li></a>
+				</ul>
+			</div>
+			<div></div>
+		</div>
+	</footer>
+</body>
+</html>

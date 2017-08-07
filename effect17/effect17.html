@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src='jquery.min.js'></script>
+	<link rel="stylesheet" href="effect17.css">
+	<style type="text/css">
+		{tra}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<img src="162.jpg" alt="">
+	</div>
+	<script type="text/javascript">
+	var i = 0;
+	
+		
+		$('.wrap').click(function() {
+			console.log(i);
+			if (i%2==0) {
+				$(this).css('transform', 'rotateY(180deg)');
+				setTimeout(function(){
+					$('.wrap').children('img').attr('src', '182.jpg');
+				},300);
+			}else{
+	
+				$(this).css('transform', 'rotateY(360deg)');
+				setTimeout(function(){
+					$('.wrap').children('img').attr('src', '162.jpg');
+					}, 300);
+				};
+				i++;
+		})
+
+	</script>
+</body>
+</html>

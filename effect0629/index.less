@@ -1,0 +1,79 @@
+@width:100px;
+@height:100px;
+.border(top,@borderWidth){
+	border-top:@borderWidth solid white;
+}
+
+.border(bottom,@borderWidth){
+	border-bottom:@borderWidth solid white;
+}
+
+.border(left,@borderWidth){
+	border-left:@borderWidth solid white;
+}
+
+.border(right,@borderWidth){
+	border-right:@borderWidth solid white;
+}
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background: rgb(29,47,59);
+}
+ul{
+	list-style: none;
+	li{
+		display: block;
+		width: @width;
+		height: @height;
+		float: left;
+		margin: 50px 100px;
+	}
+}
+.wrap{
+	position: relative;
+	width:@width;
+	height:@height;
+	button{
+		display: block;
+		width: @width;
+		height: @height;
+		border: none;
+		font-size: 20px;
+		color: rgb(145,191,191);
+		background: rgb(188,208,197);
+		position: absolute;
+		z-index: -1;
+	}
+	.wrap_top{
+		position: absolute;
+		width: @width;
+		.border(top,1px);
+		top: -1px;
+		left:0;
+	}
+	.wrap_bottom{
+		position: absolute;
+		width: @width;
+		.border(bottom,1px);
+		left: 0;
+		top: 100px;
+	}
+	.wrap_left{
+		position: absolute;
+		height: @height+2;
+		.border(left,1px);
+		top: -1px;
+		left: -1px;
+	}
+	.wrap_right{
+		position: absolute;
+		height: @height+2;
+		.border(right,1px);
+		right: -1px;
+		top: -1px;
+	}
+}
+

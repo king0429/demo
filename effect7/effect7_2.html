@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src='jquery.min.js'></script>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		ul{list-style: none;}
+		#board{width: 400px;height:600px;border: 1px solid green;margin: 50px auto}
+		#content{width: 400px;height: 540px;background: #EEE;margin-top:1px;position: relative;
+		 }
+		#content img{position: absolute;top:70px;left: 70px;height:390px;width:260px;display:none}
+
+		#menu li{width: 100px;height: 60px;float: left;font-size: 16px;text-align: center;line-height: 80px}
+	</style>
+</head>
+<body>
+	<div id="board">
+		<div id="content">
+			<img src="1.jpg" alt="">
+			<img src="2.jpg" alt="">
+			<img src="3.jpg" alt="">
+			<img src="4.jpg" alt="">
+		</div>
+		<ul id="menu">
+			<li>附近</li>
+			<li>通讯录</li>
+			<li>发现</li>
+			<li>我</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		$('li').on('click', function(){
+			$('img').css('display', 'none');
+			var a = $(this).index();
+			$('img:eq('+a+')').css('display','block');
+		});
+	</script>
+</body>
+</html>

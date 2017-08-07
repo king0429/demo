@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script src='jquery.min.js'></script>
+		<style type="text/css">
+			*{margin: 0;padding: 0}
+			.pptBox{width:1364px;height: 364px;border: 1px solid green;position: relative;overflow: hidden}
+			.pptBox img{position:absolute;}
+
+/*			.left{height: 100%;width: 363px;background: rgba(10,10,10,0.1);position: absolute;left: 0;top: 0}
+			.right{height: 100%;width: 363px;background: rgba(10,10,10,0.1);position: absolute;right: 0;top: 0}*/
+			
+		</style>
+	</head>
+	<body>
+		<div class="pptBox">
+			
+			<img src="1.jpg" alt="">
+			<img src="2.jpg" alt="">
+			<img src="3.jpg" alt="">
+		</div>
+		<button>+</button>
+		<script>
+			$('img').each(function(){
+				var index = $(this).index()
+				$(this).css({'left':index*370+'px'})
+			})
+
+			function run(){
+				$('img:last').fadeOut(500,function(){
+					$('img').animate({'left':'+=370'},1000)
+				})				
+				$('img:last').css({left: '-370px',zIndex: '-1'}).fadeIn(500);	
+			}
+			$('button').click(function(){
+				run();
+			
+			})
+		</script>		
+	</body>
+</html>

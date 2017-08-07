@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src='jquery.min.js'></script>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		ul{list-style: none;}
+		.board{width:617px;height: 414px;border: 1px solid green;overflow: hidden;margin: 50px auto}
+		.show{width: 1900px;height: 364px;border:1px solid green;position: relative;}
+		.show li{float:left;position: absolute;}
+
+		.title{width: 100%;height: 50px;}
+		.title li{display: block;width: 33.3%;height: 50px;float: left;text-align: center;font-size: 16px;line-height: 50px;}
+		.title li img{height: 30px;}
+	</style>
+</head>
+<body>
+	<div class="board">
+		<ul class="show">
+			<li><img src="1.jpg"></li>
+			<li><img src="2.jpg"></li>
+			<li><img src="3.jpg"></li>
+		</ul>
+		<div class="title">
+			<ul>
+				<li><img src="1.jpg" alt="">无敌轰炸机</li>
+				<li><img src="2.jpg" alt="">杰伦演唱会</li>
+				<li><img src="3.jpg" alt="">环境问题</li>
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript">
+		//闪到某一张
+		
+		var j = 0;
+		var l = $('.show img').length;
+		
+		function flash(){						
+					$('.show img').eq(j%l).fadeOut(500,function(){
+						$('.show img').eq((j+1)%l).fadeIn(500);
+						j++;
+					});
+					
+		}
+		flash();
+		setInterval(flash, 3000);
+	</script>
+</body>
+</html>

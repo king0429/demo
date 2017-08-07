@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style type="text/css">
+			*{margin: 0;padding: 0}
+			#board{width:99.8%;height:1429px;overflow-y: scroll;overflow-x: hidden;position: relative;
+			}
+			#board>div{width: 99%;height:180px;margin-top:30px;transition: all 100ms;font-size: 28px;padding: 10px;color: white}
+			#board>div:first-child{margin-top: 18px;}
+			#inp{width: 78.6%;height: 300px;float: left;resize: none;border:  1px solid #2419C7;font-size: 28px;color: #CCC;padding: 10px}
+			#btn{width: 19.7%;height: 320px;float: right;border:none;background:rgb(36,125,99);color:white;font-size: 40px;border:none}
+		/*	@media screen and (max-width:768px){
+				
+				#board{}
+			}*/
+		</style>
+	</head>
+	<body>
+		<div id="board"></div>
+		<textarea name="" id="inp" cols="30" rows="10"></textarea>
+		<button id="btn" onclick="sen()">发送</button>
+		<script type="text/javascript">
+				var bd = document.getElementById('board');
+				var inp = document.getElementById('inp');
+				inp.defaultValue = '请输入你的留言....'
+			function sen() {
+				var tip = document.createElement('div');
+				bd.appendChild(tip);
+				tip.style.position = 'absolute';
+				tip.style.top='0';
+				tip.style.left='980px';
+				tip.innerHTML = inp.value
+				var col = ['1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'];
+				var sum = '';
+				for (var i = 0; i < 6; i++){
+		 				var num = parseInt(Math.random()*1000%15);
+						sum+=col[num]}
+		 		tip.style.background = '#'+sum
+				setTimeout(function () {
+					tip.style.left='0';
+				}, 1);
+				tip.style.position = 'relative';
+				if (inp.value=='请输入你的留言....') {
+					return;
+				}else{
+					inp.value = '';
+				}
+
+			}
+			inp.onfocus = function () {
+				this.value = '';
+				this.style.color = '#000';
+				this.style.fontSize = '28px';
+			}
+		</script>
+	</body>
+</html>

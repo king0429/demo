@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src='jquery.min.js'></script>
+	<style type="text/css">
+		#back{width: 100px;height: 10px;border: 1px solid #6E797B;margin:50px auto;position: relative;border-radius: 10px}
+		#btn{transition:left 200ms}
+		.bg{width:0;background:#6E797B;height: 100%;transition:width 300ms;}
+		.bg1{width: 100%;}
+		.b1{width: 40px;height: 40px;background:#C1C4C9;border-radius: 50%;border: none;position: absolute;top:-15px;left:-15px}
+		.b2{left: 80px;}
+		#cont{width: 220px;height: 197px;margin: 5px auto;}
+		.show{display: block;}
+		.hide{display: none}
+	</style>
+</head>
+<body>
+	<div id="back">
+		<div class="bg">
+			<button id="btn" class="b1"></button>
+		</div>
+	</div>
+	<div id="cont" class='hide '>
+		<img src="88.jpg">
+	</div>
+	<script type="text/javascript">
+		$('#btn').on('click', function(){
+			//toggle 切换
+			$(this).toggleClass('b2');
+			$('.bg').toggleClass('bg1');
+			$('#cont').toggleClass('hide show')
+			// $('#cont').toggleClass('show');
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style type="text/css">
+			*{margin: 0;padding: 0}
+			nav{width: 50px;height: 638px;background:#24B149;float: left;position: relative;}
+			.nav{width: 34px;height: 50px;transition: transform 500ms linear;}
+			nav .btn_set{position: absolute;left: 0;bottom: 0}
+			nav .shortcut{margin-top: 50px}
+			nav .shortcut button{width: 50px;height: 50px;border: none;background: #00cc00;color: white}
+			nav .shortcut button:nth-child(2){margin:10px 0; }
+			.middle{width: 1000px;height:634px;border: 2px solid rgb(59,147,32);float: left;margin-left: 20px}
+			.middle .state{height: 30px;width: 1000px;border: none;background: #00cc66}
+			.right{width: 262px;height: 634px;border: 2px solid rgb(59,147,32); float: right;margin-left: 8px}
+		
+		</style>
+	</head>
+	<body>
+		<nav>
+			<div class="nav"><img src="../images/nav_1.0.jpg" alt=""></div>
+			<div class="shortcut">
+				<button>快捷键1</button>
+				<button>快捷键2</button>
+				<button>快捷键3</button>
+				<button class="btn_set">设置</button>
+			</div>
+		</nav>
+		<div class="middle">
+			<div class="state">状态栏</div>
+		</div>
+		<div class="right">
+			
+			<button onclick="change()">出现</button>
+		</div>
+				
+		
+		<script type="text/javascript">
+			var box = document.getElementById('big');
+			var txt = document.getElementById('b');
+			var sss;
+			function change() {
+				 var tip = document.createElement('div');
+				 box.appendChild(tip);
+				 tip.innerHTML = txt.value;
+
+				 sss = box.childNodes;
+				 for(var i=0;i<sss.length;i++){
+				 	sss[i].onclick = function () {
+					this.style.width = '200px';
+					this.style.height = '200px';
+					}
+				 }
+				 
+			}
+			function xz() {
+				var nav = document.getElementById('nav')
+					nav.style.transform = 'rotate(90deg)'
+			}
+			
+
+
+
+
+
+			
+		</script>
+	</body>
+</html>

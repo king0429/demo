@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		* {margin: 0;padding: 0;}
+		#wrap {width: 100%;background: rgba(51,51,51,0.3);position: absolute;left: 0;top: 0;z-index:2;display: none;}
+		#box {width: 200px;height:120px;margin: 190px auto; position: relative;z-index: 0;background: rgb(255,255,255);}
+		#box div:nth-child(1) {width: 100%;height: 38%;background: rgba(125,115,177,0.7);}
+		#btn {width: 98.8%;height: 62%;font-size: 20px;color:rgb(51,51,51);text-align: center;line-height:75px; border: 1px solid rgba(125,115,177,0.7);border-top: none;cursor: pointer;}
+		#window {width: 190px;height: 85px;padding: 3px 5px; border: 1px solid rgb(69,69,69);margin: -320px auto; font-size: 14px;line-height: 30px;color: rgb(69,69,69); border-radius: 10px;position: relative;background: rgb(255,255,255);display: none;}
+	</style>
+</head>
+<body>
+	<div id="wrap"></div>
+	<div id="box">
+		<div></div>
+		<div id="btn">请点击</div>
+	</div>
+	<div id="window">你看的出来我的在最上面么？</div>
+	<script type="text/javascript">
+		var h = window.innerHeight;
+		var wrap = document.getElementById('wrap');
+		wrap.style.height = h+'px';
+		document.getElementById('btn').onclick = function test(){
+			alert(1);
+			wrap.style.display = 'block';
+			document.getElementById('window').style.display = 'block';
+			document.getElementById('btn').style.zIndex = -99;
+			wrap.style.zIndex = 1;
+			document.getElementById('window').style.zIndex = 2;
+		};
+	</script>
+</body>
+</html>

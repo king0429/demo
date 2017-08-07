@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style type="text/css">
+			#news{width: 400px;height:550px;border: 1px solid green;margin: 10px auto;position: relative;
+			}
+			#big{width: 0;height: 0;background:rgba(0,0,0,0.7);position: absolute;top: 0;left: 0;display: none;transition: all 100ms}
+			#big img{position: absolute;top:90px;left:70px;transition:all 100ms;width:0;}
+			#news p{width:80%;margin-left: 40px;margin-top: 5px;float: left;}
+			#img img{float: left;width: 130px;height: 185px;margin-top: 2px}
+			#img img:nth-child(2){margin:2px 5px }
+		</style>
+	</head>
+	<body>
+		<div id="news">
+			<div id="big">
+				<img id="bimg" alt="">
+			</div>
+			<p>本文设计的蔬菜温室大棚能控制系统，其系统总体结构框图如图 5-5 所示，主要由五大部分构成：基于传感器的监控平台、数据汇集节点的无线传感器节点、执行机构。本系统有两种运行模式，手动控制模式和自动控制模式。处于手动控制模式时，可根据监控平台显示的温室环境参数，进行手动控制执行机构动作，调节温室大棚内的环境参数，达到植物生长的最佳环境条件；处于自动控制模式时，根据前面的推倒的温室模型及控制理论，将温度、湿度这两个参数作为主要被控制对象，通过无线温湿度传感器将温室大棚内的温度、湿度这两个参数进行采集并传送到控制平台，控制平台得到数据后，采用多变量控制算法进行数据分析，然后提示并发出控制命令控制执行机构动作.</p>
+			<div id="img">
+				<img src="1.jpg" alt="">
+				<img src="2.jpg" alt="">
+				<img src="3.jpg" alt="">
+			</div>
+			<script type="text/javascript">
+				var Imgs = document.getElementById('img').getElementsByTagName('img');
+				var bigImg = document.getElementById('bimg')
+				var big = document.getElementById('big')
+				for (var i = 0; i < Imgs.length; i++) {
+					Imgs[i].index = i;
+					Imgs[i].onclick = function () {
+						big.style.display = 'block';
+						big.style.width = '100%';
+						big.style.height = '100%';
+						bimg.src = this.index+1+'.jpg';
+						setTimeout(function(){
+							bimg.style.width = '260px';
+						},10)
+						
+					}
+				}
+				big.onclick = function () {
+					big.style.display = 'none';
+					e.stoppropagrtion()
+				}
+			</script>
+		</div>
+	</body>
+</html>

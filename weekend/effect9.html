@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script src = 'jquery.min.js'></script>
+		<style type="text/css">
+			*{margin: 0;padding: 0}
+			.btn{width: 50px;height: 50px;margin: 50px;border: none;background: rgb(35,177,79);}
+			.btn img{margin: 12px 10px;transition: all 500ms}
+			#box{width: 0px; height: 0px;border: 3px solid rgb(35,177,79);position: absolute;top: 50px;left: 120px;background: rgba(18,216,77,0.3);display: none;}
+		</style>
+	</head>
+	<body>
+		<div class="btn"><img src="89.jpg" alt=""></div>
+		<div id="box"></div>
+		<script type="text/javascript">
+		var a = true;
+		$('.btn').on('click', function() {
+			if(a){
+				$('.btn img').css('transform', 'rotate(90deg)');
+				$('#box').css('display', 'block');
+				$('#box').animate({width:"400px"}, 500,function () {
+					$(this).animate({height:"300px"}, 500)
+				})
+				a = false;
+			}else{
+				$('.btn img').css('transform', 'rotate(-0deg)');
+				$('#box').animate({height:"0px"}, 500,function () {
+					$(this).animate({width:"0px"}, 500,function () {
+					$(this).css('display', 'none');
+					})
+				  // $(this).css('border', 'none');
+				})
+				
+				a = true;
+			}
+		});
+		</script>	
+	</body>
+</html>

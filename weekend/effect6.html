@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		ul{list-style: none;position: relative;}
+		#a{height: 80px;width: 600px;border: 3px solid green;margin: 30px auto;}
+		ul li{float: left;line-height: 80px;}
+		li a{display: block;text-decoration: none;color: #15645a;text-align: center;width: 80px;height: 60px}
+		#bdb{border-bottom: 2px solid red;position: absolute;width:75px;height:65px;position: absolute;left: 5px;transition:all 300ms;}
+	</style>
+</head>
+<body>
+	<div id="a">
+		<ul>
+			<li><a href="#">周杰伦</a></li>
+			<li><a href="#">方文山</a></li>
+			<li><a href="#">陈奕迅</a></li>
+			<li><a href="#">林夕</a></li>
+			<li id="bdb"></li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		var lis = document.getElementsByTagName('li');
+		var k= document.getElementById('bdb');
+		for (var i = 0; i < lis.length; i++) {
+			lis[i].index = i;
+			lis[i].onclick = function () {
+				var dang = k.style.left;
+				var j = this.index;
+				k.style.left = 80*j+20+'px'
+				setTimeout(function(){
+					k.style.left= parseInt(k.style.left)-15 +'px' 
+				}, 300);
+			}
+		}
+		// if(k.style.left>dang){
+		// 				k.style.left= parseInt(k.style.left)-15 +'px' 
+		// 			}else{
+
+		// 			}
+	</script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.wrap{
+			width: 300px;
+			height: 400px;
+			border: 2px solid #338899;
+			margin: 50px auto;
+			overflow: hidden;
+			position: relative;	
+		}
+		#menu{
+			width: 248px;
+			height: 100%;
+			border-right: 2px solid #338899;
+			border-bottom: 2px solid #338899;
+			background: #338899;
+			float: left;
+			position: relative;
+			top: -350px;
+			transition: top 0.9s;
+		}
+		#canvas1,#canvas2{
+			border-bottom: 2px solid #338899;
+			position: absolute;
+			right: 0;
+		}
+		.content{
+			height: 50px;
+			width: 100%;
+			background: rgb(255,255,255);
+			border-top: 2px solid #338899;
+			position: absolute;
+			bottom:0;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div id="menu">
+			<div class="content"></div>			
+		</div>
+		<canvas id="canvas1" width="50" height="50"></canvas>
+		<canvas id="canvas2" width="50" height="50"></canvas>
+		<script type="text/javascript">
+			var ctx1 = document.getElementById('canvas1').getContext('2d');
+			var ctx2 = document.getElementById('canvas2').getContext('2d');
+			var menu = document.getElementById('menu');
+			function line1() {
+				ctx1.save();	
+				ctx1.translate(canvas1.width/2,canvas1.height/2);		
+				ctx1.beginPath();
+				ctx1.strokeStyle = '#338899';
+				ctx1.lineWidth = 3;
+				ctx1.moveTo(-18,-6);
+				ctx1.lineTo(18,-6);
+				ctx1.stroke();
+				ctx1.restore();
+			}
+			line1();
+			line2();
+		function line2() {
+				ctx2.save();
+			ctx2.translate(canvas2.width/2,canvas2.height/2);
+			ctx2.beginPath();
+			ctx2.strokeStyle = '#338899';
+			ctx2.lineWidth = 3;
+			ctx2.moveTo(-18,6);
+			ctx2.lineTo(18,6);
+			ctx2.stroke();
+			ctx2.restore();
+		}
+
+			canvas2.onclick = function () {
+				menu.style.top = 0;
+				var i = 1;
+
+
+
+				ctx1.save();
+				ctx1.translate(10,19);
+
+				// 
+				var timer1 = setInterval(function(){
+				ctx1.clearRect(0,0,canvas1.width,canvas1.height);
+				ctx1.rotate(Math.PI/180*-i);
+
+				ctx1.beginPath();
+				ctx1.strokeStyle = '#338899';
+				ctx1.lineWidth = 3;
+				ctx1.moveTo(0,0);
+				ctx1.lineTo(30,0);
+				ctx1.stroke();				
+				// ctx1.restore();
+				}, 10);
+				setTimeout(function(){
+					clearInterval(timer1);
+				}, 900);
+
+
+				ctx2.translate(40,31);
+				// 
+				var timer2 = setInterval(function(){
+				ctx2.clearRect(0,0,canvas2.width,canvas2.height);
+				ctx2.rotate(Math.PI/180*-i);
+				ctx2.beginPath();
+				ctx2.strokeStyle = '#338899';
+				ctx2.lineWidth = 3;
+				ctx2.moveTo(0,0);
+				ctx2.lineTo(30,0);
+				ctx2.stroke();				
+					// ctx1.restore();
+				}, 2);
+				setTimeout(function(){
+					clearInterval(timer2);
+				}, 900);
+
+			}
+
+		</script>
+	</div>
+</body>
+</html>

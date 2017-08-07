@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src='jquery.min.js'></script>
+	<style>
+		.wrap{
+			width: 400px;
+			height: 300px;
+			border: 1px solid green;
+			position: relative;
+		}
+		.wrap div{
+			width: 50px;
+			height: 50px;
+			border: 3px solid green;
+		}
+		.wrap .led1{
+			position: absolute;
+			top: 50px;
+			left: 30%;
+			border-bottom: none;
+		}
+		.wrap .led2{
+			position: absolute;
+			top: 103px;
+			left: 30%;
+			border-top: none;
+		}
+		.wrap .led3{
+			position: absolute;
+			top: 50px;
+			left: 50%;
+			border-bottom: none;
+		}
+		.wrap .led4{
+			position: absolute;
+			top: 103px;
+			left: 50%;
+			border-top: none;
+		}
+		input{
+			width: 100px;
+			margin-top: 257px;
+			margin-left: 5px;
+			height: 28px;
+			font-size: 20px;
+			line-height: 26px;
+			padding-left: 5px;
+			border: 1px solid green;
+		}
+		button{
+			margin-left: 5px;
+			margin-top: 257px;
+			height: 32px;
+			padding:0 10px ;
+			font-size: 20px;
+			background: rgb(12,200,66);
+			border: none;
+			color: white;
+			vertical-align: top;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="led1"></div>
+		<div class="led2"></div>
+		<div class="led3"></div>
+		<div class="led4"></div>
+		<span>请输入0-99任意整数:</span><input type="text"><button>提交</button>
+	</div>
+	<script type="text/javascript">
+		$('button').click(function() {
+			var num = $('input').val();
+			if (num<10) {num='0'+num;}
+			$('.wrap div').css('border', 'none');
+			if (!(num>0&&num<=99)) {
+				alert('请输入正确的内容');
+				 $('input').val('');
+			}else{
+				var fnum = num.substring(0,1);
+				var snum = num.substring(1,2);
+				lcd1(fnum);
+				lcd2(snum);
+			}
+		});
+		function lcd1(num) {
+				switch(num) {
+					case '1':
+						$('.led1').css('border-right', '3px solid green');
+						$('.led2').css('border-right', '3px solid green');
+					break;
+					case '2':
+						$('.led1').css({
+							border: '3px solid green',
+							borderLeft: 'none'
+						});
+						$('.led2').css({
+							border: '3px solid green',
+							borderTop: 'none',
+							borderRight:'none'
+						});
+						break;
+						case '3':
+						$('.led1').css({
+							border: '3px solid green',
+							borderLeft: 'none'
+						});
+						$('.led2').css({
+							border: '3px solid green',
+							borderTop: 'none',
+							borderLeft:'none'
+						});
+						break;
+						case '4':
+						$('.led1').css({
+							border: '3px solid green',
+							borderTop: 'none'
+						});
+						$('.led2').css({
+							borderRight: '3px solid green'
+						});
+						break;
+						case '5':
+						$('.led1').css({
+							border: '3px solid green',
+							borderRight: 'none'
+						});
+						$('.led2').css({
+							border: '3px solid green',
+							borderTop: 'none',
+							borderLeft:'none'
+						});
+						break;
+						case '6':
+						$('.led1').css({
+							border: '3px solid green',
+							borderRight: 'none'
+						});
+						$('.led2').css({
+							border: '3px solid green',
+							borderTop: 'none'
+						});
+						break;
+						case '7':
+						$('.led1').css({
+							border: '3px solid green',
+							borderLeft: 'none',
+							borderBottom:'none'
+						});
+						$('.led2').css({
+							borderRight: '3px solid green',
+						});
+						break;
+						case '8':
+						$('.led1').css({
+							border: '3px solid green',
+						});
+						$('.led2').css({
+							border: '3px solid green',
+							borderTop: 'none',
+						});
+						break;
+						case '9':
+						$('.led1').css({
+							border: '3px solid green',
+							borderBottom:'none'
+						});
+						$('.led2').css({
+							border: '3px solid green',
+							borderLeft: 'none'
+						});
+						break;
+						case '0':
+						$('.led1').css({
+							border: '3px solid green',
+							borderBottom: 'none'
+						});
+						$('.led2').css({
+							border: '3px solid green',
+							borderLeft: 'none'
+						});
+						break;
+				}
+			}
+		function lcd2(num) {
+				switch(num) {
+					case '1':
+						$('.led3').css('border-right', '3px solid green');
+						$('.led4').css('border-right', '3px solid green');
+					break;
+					case '2':
+						$('.led3').css({
+							border: '3px solid green',
+							borderLeft: 'none'
+						});
+						$('.led4').css({
+							border: '3px solid green',
+							borderTop: 'none',
+							borderRight:'none'
+						});
+						break;
+						case '3':
+						$('.led3').css({
+							border: '3px solid green',
+							borderLeft: 'none'
+						});
+						$('.led4').css({
+							border: '3px solid green',
+							borderTop: 'none',
+							borderLeft:'none'
+						});
+						break;
+						case '4':
+						$('.led3').css({
+							border: '3px solid green',
+							borderTop: 'none'
+						});
+						$('.led4').css({
+							borderRight: '3px solid green'
+						});
+						break;
+						case '5':
+						$('.led3').css({
+							border: '3px solid green',
+							borderRight: 'none'
+						});
+						$('.led4').css({
+							border: '3px solid green',
+							borderTop: 'none',
+							borderLeft:'none'
+						});
+						break;
+						case '6':
+						$('.led3').css({
+							border: '3px solid green',
+							borderRight: 'none'
+						});
+						$('.led4').css({
+							border: '3px solid green',
+							borderTop: 'none'
+						});
+						break;
+						case '7':
+						$('.led3').css({
+							border: '3px solid green',
+							borderLeft: 'none',
+							borderBottom:'none'
+						});
+						$('.led4').css({
+							borderRight: '3px solid green',
+						});
+						break;
+						case '8':
+						$('.led3').css({
+							border: '3px solid green',
+						});
+						$('.led4').css({
+							border: '3px solid green',
+							borderTop: 'none',
+						});
+						break;
+						case '9':
+						$('.led3').css({
+							border: '3px solid green',
+							borderBottom:'none'
+						});
+						$('.led4').css({
+							border: '3px solid green',
+							borderLeft:'none'
+						});
+						break;
+						case '0':
+						$('.led3').css({
+							border: '3px solid green',
+							borderBottom: 'none'
+						});
+						$('.led4').css({
+							border: '3px solid green',
+							borderTop: 'none'
+						});
+						break;
+				}
+			}
+	</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style type="text/css">
+				#a{width: 400px;height: 400px;border-radius: 50%;background: url(1.png) -2px -2px;margin: 10px auto;transition: all 4s}
+				#b{display: block;width: 400px;height: 62px;background: pink;border: none;color:rgb(248,248,248);margin: 0 auto;font-size: 30px;text-align: center;}
+				#c{width: 200px;height: 40px;border: 1px solid #9E2E34;font-size: 30px;position:absolute;display: none;color: #9E2E34}
+				#d{width: 41px;height: 166px;background: url('jt.png');background-size:41px 166px;position: absolute;display: none;
+				}
+		</style>
+	</head>
+	<body>
+		<div id="a" ></div>
+		<button id="b" onclick="change()" ondblclick="change1()">开始</button>
+		<div id="c">你要的终点吧</div>
+		<div id="d"></div>
+		<script type="text/javascript">
+		var a = document.getElementById('a');
+		var b = document.getElementById('b')
+		var c = document.getElementById('c')
+		var d = document.getElementById('d')
+		var aaa; 
+			function change() {
+					var num	= parseInt(Math.random()*10000);
+					a.style.transform = 'rotate('+num+'deg)';
+					b.innerHTML = '试试双击666'
+			}
+				
+			function change1() {
+		    aaa = prompt('请输入      666         ')
+				
+				if (aaa==666) {
+					alert('单机圆盘任意位置');
+				a.onmousedown = function (eve) {
+					
+					var e = eve || window.event;
+
+					var setX = e.clientX;
+					var setY = e.clientY;
+					c.style.display = 'block';
+					c.style.top = setY+'px';
+					c.style.left = setX+'px';
+					d.style.display = 'block';
+					d.style.top = (setY-166)+'px';
+					d.style.left = (setX-20)+'px';
+					}
+				}
+
+			}
+			
+		</script>
+	</body>
+</html>

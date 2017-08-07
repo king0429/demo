@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">	
+		*{margin: 0;padding: 0}
+		.line{height: 500px;margin-left:50% ;border-left: 2px solid #CCC;}
+		.bd	{height: 20px;width: 20px;border: 1px solid green;position: relative;display: nones;}
+		.point {height: 15px;width: 15px;border-radius: 50%;background: green;position: absolute;left: -50%;margin: 0 auto;}
+	</style>
+	<script src = '../jquery.min.js'></script>
+</head>
+<body>
+	<div class="line">
+		<div class="bd"><div class="point"></div></div>
+		<div class="bd"><div class="point"></div></div>
+		<div class="bd"><div class="point"></div></div>
+		<div class="bd"><div class="point"></div></div>
+	</div>
+	<script type="text/javascript">
+		for (var i = 0; i < $('.point').length; i++) {
+			$('.point').eq(i).css('top', (i+1)*15+'%');
+		}
+
+
+		$('.point').click(function() {
+			$('.bd').eq($(this).index()).show();
+		});
+	</script>
+</body>
+</html>

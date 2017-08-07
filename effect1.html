@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		button{display: block;margin: 10px auto;margin-bottom: 0; height: 50px;width: 80px;border:2px solid #456C11;background: #BADA87;color: white;font-size: 20px;}
+
+		#box{ border:2px solid #456C11;background: #BADA87;opacity: 0.5;display: none;margin-left: 635px;}
+	</style>
+</head>
+<body>
+	<button onclick="test()" id="btn">出现</button>
+
+		<div id="box"></div>
+
+	<script type="text/javascript">
+		var box = document.getElementById('box');
+		var btn = document.getElementById('btn')
+		var i = 0;
+		var j = 0;
+		var timer,timer1
+
+		//展开函数
+		if (btn.value=='出现') {
+			function test() {
+			timer = setInterval(function(){
+					box.style.display = 'block'
+					i++;
+					if(i>=400){
+							clearInterval(timer);
+							timer1 = setInterval(function () {
+								j++;
+								if (j>200){
+									clearInterval(timer1);
+								}
+								box.style.height = j+'px';
+							},1)
+						}
+
+					box.style.width = i+'px';
+				},3)	
+
+			}
+			btn.value= '收回'		
+		} else {
+			second expression
+		}
+	</script>
+</body>
+</html>

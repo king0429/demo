@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>reddit</title>
+	<link rel="stylesheet" href="zc.css">
+	<script src='jquery.min.js'></script>
+</head>
+<body>
+	<div class="wrap">
+		<div class="button">
+			<div class="point"></div>
+		</div>
+		<div class="voice"><img src="v1.png" alt=""></div>
+	</div>
+	<script type="text/javascript">
+		$('.button').click(function(){
+			var num = parseInt(Math.random()*10000000%360);
+			$(this).css('transform', 'rotateZ('+num+'deg)');
+			if (num%4==0) {
+				$('.voice img').attr('src', 'v1.png').css('padding-top', '3px');
+			}else if (num%4==1){
+				$('.voice img').attr('src', 'v2.png').css('padding-top', '3px');
+			}else if (num%4==2){
+				$('.voice img').attr('src', 'v3.png').css('padding-top', '3px');
+			}else if (num%4==3){
+				$('.voice img').attr('src', 'v4.png').css('padding', '0');;
+			}
+		});
+	</script>
+</body>
+</html>
